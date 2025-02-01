@@ -1,0 +1,11 @@
+<div class="w-2/3 mx-auto grid grid-cols-2 gap-x-4 border border-gray-800 rounded-4xl p-4 mt-4">
+    <!-- Make the canvas span across both columns -->
+    <div class="w-full col-span-2">
+        <canvas id="canvas">{{ chart }}</canvas>
+    </div>
+
+    <!-- Loop through userData and display in two columns -->
+    <div class="flex text-center hover:underline p-1 px-4  cursor-pointer" *ngFor="let user of userData">
+        <div (click)="handleSetUserCharts(user.name)">{{ user.name }}</div>
+    </div>
+</div>

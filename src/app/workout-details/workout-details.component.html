@@ -16,7 +16,7 @@
             <div>Total Workouts Minutes</div>
         </div>
     
-        <div *ngFor="let user of userData" class="grid grid-cols-4 border-b-2 gap-y-2 text-center justify-center">
+        <div *ngFor="let user of displayedUsers" class="grid grid-cols-4 border-b-2 gap-y-2 text-center justify-center">
             <div>{{user?.name}}</div>
             <span>{{ getWorkoutTypesString(user) }}</span>
             <div>{{user?.workouts.length}}</div>

@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { WorkoutTrackerComponent } from "./workout-tracker/workout-tracker.component";
 import { WorkoutDetailsComponent } from './workout-details/workout-details.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BarChartComponent } from './user-charts/user-charts.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, WorkoutTrackerComponent,WorkoutDetailsComponent,PaginationComponent],
+  imports: [RouterOutlet, WorkoutTrackerComponent,WorkoutDetailsComponent,PaginationComponent,BarChartComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

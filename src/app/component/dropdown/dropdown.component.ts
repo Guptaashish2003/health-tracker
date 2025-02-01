@@ -15,8 +15,8 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
   ]
 })
 export class DropdownComponent implements ControlValueAccessor {
-  @Input() options: { id: number | string; type: string }[] = [];
-  @Input() placeholder: string = 'Select an option';
+  @Input() options: { id: number | string; type?: number|string  }[] = [];
+  @Input() placeholder: string|number = '';
 
   selectedValue: string = '';
   onChange = (value: string) => {};

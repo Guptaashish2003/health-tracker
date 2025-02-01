@@ -1,10 +1,14 @@
-<div>
-    <button>Previous</button>
-    <li>
-        <ul></ul>
-        <ul></ul>
-    </li>
-    <button>Next</button>
-    <app-custom-dropdown></app-custom-dropdown>
+<div class="flex justify-center gap-x-4 items-center ">
+    <button class=" border rounded-lg cursor-pointer p-1 px-2" (click)="prevPage()" >Previous</button>
+   <!-- span of custom total pages -->
+   <div *ngFor="let page of getPages()">
+    <button class="border rounded-lg cursor-pointer p-1 px-2" (click)="onPageChange(page)" [class.active]="page === page">
+      {{ page }}
+    </button>
+  </div>
+
+    <button class="cursor-pointer border rounded-lg p-1 px-2" (click)="nextPage()" >Next</button>
+    <app-custom-dropdown class="w-[52px] cursor-pointer !important inline-block" [placeholder]="userPerPage[0].type" [options]="userPerPage" name="workoutType" [(ngModel)]="users" (ngModelChange)="onOptionChange($event)">
+        </app-custom-dropdown>
 
 </div>
