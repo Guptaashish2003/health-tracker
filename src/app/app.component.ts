@@ -1,20 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, type OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { WorkoutTrackerComponent } from "./workout-tracker/workout-tracker.component";
 import { WorkoutDetailsComponent } from './workout-details/workout-details.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BarChartComponent } from './user-charts/user-charts.component';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, WorkoutTrackerComponent,WorkoutDetailsComponent,PaginationComponent,BarChartComponent],
+  imports: [RouterOutlet, WorkoutTrackerComponent,CommonModule,WorkoutDetailsComponent,PaginationComponent,BarChartComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'health-tracker';
 
   userData = [
@@ -45,8 +46,8 @@ export class AppComponent {
   ];
  
   // append this data to userData
-  addNewUser(user: any) {
-    this.userData.push(user);
+  ngOnInit() {
+    localStorage.setItem('userData', JSON.stringify(this.userData));
   }
 }
 
