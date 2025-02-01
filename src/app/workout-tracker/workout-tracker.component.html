@@ -1,0 +1,23 @@
+<main class="flex pt-6 w-full flex-col">
+  <h2 class="w-2/3 mx-auto p-2 px-4 my-4 text-6xl ">Add Workout</h2>
+  <form #healthTrackingForm="ngForm" class="w-2/3  mx-auto p-2 px-4 grid grid-cols-2 gap-3" (ngSubmit)="onSubmit()">
+    
+    <input-btn name="name" [(ngModel)]="formData.name" class="w-full grid-[1fr]" [required]="true" [type]="'text'" [label]="'Workout Name*'"></input-btn>
+    
+    <div></div>
+
+    <app-custom-dropdown
+      class="w-full"
+      [placeholder]="'Select Workout*'"
+      [options]="WorkOutTypes"
+      name="workoutType"
+      [(ngModel)]="formData.workout[0].type"
+      (ngModelChange)="handleSelection($event)">
+    </app-custom-dropdown>
+
+    <input-btn name="workoutMinutes" [(ngModel)]="formData.workout[0].minutes" [required]="true" [type]="'number'" [label]="'Workout Minutes'"></input-btn>
+
+    <app-custom-button [type]="'submit'" [label]="'Add Workout'"></app-custom-button>
+
+  </form>
+</main>
