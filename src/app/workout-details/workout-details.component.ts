@@ -32,20 +32,17 @@ export class WorkoutDetailsComponent implements OnInit {
     { id: 14, type: 'running' },
     { id: 15, type: 'barre' },
   ];
-  storedUsers:any;
-  userData!: any[];
-  constructor(private route: ActivatedRoute) {}
+  storedUsers = localStorage.getItem('userData');
+  userData: any[] = this.storedUsers ? JSON.parse(this.storedUsers) : [];
   displayedUsers:any[]=[]
+
+  constructor(private route: ActivatedRoute) {}
   ngOnInit(): void {
-     this.storedUsers = localStorage.getItem('userData');
-    this.userData  = this.storedUsers ? JSON.parse(this.storedUsers) : [];
     // Access query parameters from the URL
     this.route.queryParams.subscribe(params => {
       this.users = +params['users'] || 5;  // Default to 5 if 'users' parameter is not provided
       this.page = +params['page'] || 1;    // Default to page 1 if 'page' parameter is not provided
       this.updateDisplayedUsers();
-      console.log("Users per page:", this.users);
-      console.log("current pages", this.page)
     });
   }
   updateDisplayedUsers() {

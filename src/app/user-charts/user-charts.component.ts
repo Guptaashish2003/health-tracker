@@ -11,7 +11,7 @@ import Chart from 'chart.js/auto';
 })
 export class BarChartComponent implements OnInit {
   userName: string = 'John Doe';
-  userData!:any[];
+  userData =  localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData') || '{}') : [];
 
   
   handleSetUserCharts(value:string){
@@ -32,7 +32,6 @@ export class BarChartComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.userData=localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData') || '{}') : [];
     this.chart = new Chart('canvas', {
       type: 'bar',
       data: {

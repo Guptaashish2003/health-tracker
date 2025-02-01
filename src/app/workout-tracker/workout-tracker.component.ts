@@ -43,7 +43,7 @@ export class WorkoutTrackerComponent {
   
 
   onSubmit() {
-    console.log("Form Data:", this.formData);
+    // console.log("Form Data:", this.formData);
     const storedUsers = localStorage.getItem('userData');
     let userData: any[] = storedUsers ? JSON.parse(storedUsers) : [];
     let existingUser = userData.find(user => user.name.toLowerCase() === this.formData.name.toLowerCase());

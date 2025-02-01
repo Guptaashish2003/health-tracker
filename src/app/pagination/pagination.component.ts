@@ -36,7 +36,7 @@ export class PaginationComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) {}
   ngOnInit(): void {
     // Retrieve query parameters from the URL
-    console.log("")
+    // console.log("")
   }
 
   // Navigate with updated query params
